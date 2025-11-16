@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ECOZIA Products - Browse our fresh organic produce, smoothies, and salads">
+  <title>Products - ECOZIA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script defer src="cart.js"></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <a href="index.html"><h1>🌱 ECOZIA</h1></a>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html#home">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="signin.html" class="signin-link">Sign In</a>
+        <a href="#" class="cart-icon-link" onclick="toggleCart()">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Products Page Hero -->
+  <section class="products-hero">
+    <div class="container">
+      <h1>Our Fresh Products</h1>
+      <p>Handpicked organic produce, fresh smoothies, and ready-to-enjoy salads</p>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="products-filter">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Products</button>
+        <button class="filter-btn" data-filter="vegetables">Vegetables</button>
+        <button class="filter-btn" data-filter="fruits">Fruits</button>
+        <button class="filter-btn" data-filter="smoothies">Smoothies</button>
+        <button class="filter-btn" data-filter="salads">Salads</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-listing" id="productsListing">
+        <!-- Products will be loaded here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Shopping Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="cart-close" onclick="toggleCart()">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your cart is empty</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <strong>Total: <span id="cartTotal">Rs. 0</span></strong>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2>🌱 ECOZIA</h2>
+          <p>A Tapestry of Freshness and Wellness</p>
+          <p class="footer-tagline">Fresh, organic produce delivered to your doorstep</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="products.html">Organic Veggies & Fruits</a></li>
+            <li><a href="products.html">Smoothies</a></li>
+            <li><a href="products.html">Salads</a></li>
+            <li><a href="index.html#pricing">Subscription Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>📧 greenhouseecozia@gmail.com</p>
+          <p>📱 071-5054968</p>
+          <p>📍 123/2, St.Joseph's road, Nuwara Eliya</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ECOZIA. All Rights Reserved.</p>
+        <p><a href="https://www.greenhouseecozia.com" target="_blank">www.greenhouseecozia.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Product data
+    const products = [
+      // Vegetables
+      {
+        id: 1,
+        name: "Organic Tomatoes",
+        category: "vegetables",
+        price: 450,
+        image: "https://images.unsplash.com/photo-1546470427-e26264be0d93?q=80&w=800&auto=format&fit=crop",
+        description: "Fresh, juicy organic tomatoes grown in our smart greenhouses"
+      },
+      {
+        id: 2,
+        name: "Organic Carrots",
+        category: "vegetables",
+        price: 380,
+        image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800&auto=format&fit=crop",
+        description: "Crisp, sweet organic carrots packed with nutrients"
+      },
+      {
+        id: 3,
+        name: "Organic Spinach",
+        category: "vegetables",
+        price: 320,
+        image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?q=80&w=800&auto=format&fit=crop",
+        description: "Fresh leafy spinach, rich in iron and vitamins"
+      },
+      {
+        id: 4,
+        name: "Organic Bell Peppers",
+        category: "vegetables",
+        price: 520,
+        image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?q=80&w=800&auto=format&fit=crop",
+        description: "Colorful bell peppers in red, yellow, and green"
+      },
+      {
+        id: 5,
+        name: "Organic Broccoli",
+        category: "vegetables",
+        price: 480,
+        image: "https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?q=80&w=800&auto=format&fit=crop",
+        description: "Fresh broccoli florets, high in fiber and vitamins"
+      },
+      {
+        id: 6,
+        name: "Organic Cucumbers",
+        category: "vegetables",
+        price: 350,
+        image: "https://images.unsplash.com/photo-1604977042222-3f39ac49a82a?q=80&w=800&auto=format&fit=crop",
+        description: "Crisp, refreshing organic cucumbers"
+      },
+      // Fruits
+      {
+        id: 7,
+        name: "Organic Apples",
+        category: "fruits",
+        price: 680,
+        image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?q=80&w=800&auto=format&fit=crop",
+        description: "Sweet, crisp organic apples in various varieties"
+      },
+      {
+        id: 8,
+        name: "Organic Bananas",
+        category: "fruits",
+        price: 420,
+        image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=800&auto=format&fit=crop",
+        description: "Fresh, naturally ripened organic bananas"
+      },
+      {
+        id: 9,
+        name: "Organic Oranges",
+        category: "fruits",
+        price: 580,
+        image: "https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?q=80&w=800&auto=format&fit=crop",
+        description: "Juicy, vitamin C-rich organic oranges"
+      },
+      {
+        id: 10,
+        name: "Organic Strawberries",
+        category: "fruits",
+        price: 850,
+        image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=800&auto=format&fit=crop",
+        description: "Sweet, luscious organic strawberries"
+      },
+      {
+        id: 11,
+        name: "Organic Grapes",
+        category: "fruits",
+        price: 720,
+        image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=800&auto=format&fit=crop",
+        description: "Fresh, seedless organic grapes"
+      },
+      {
+        id: 12,
+        name: "Organic Mangoes",
+        category: "fruits",
+        price: 920,
+        image: "https://images.unsplash.com/photo-1605027990121-4c38c79e91c5?q=80&w=800&auto=format&fit=crop",
+        description: "Sweet, aromatic organic mangoes"
+      },
+      // Smoothies
+      {
+        id: 13,
+        name: "Green Power Smoothie",
+        category: "smoothies",
+        price: 650,
+        image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=800&auto=format&fit=crop",
+        description: "Spinach, kale, banana, and organic fruits blended to perfection"
+      },
+      {
+        id: 14,
+        name: "Berry Bliss Smoothie",
+        category: "smoothies",
+        price: 680,
+        image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=800&auto=format&fit=crop",
+        description: "Mixed berries with yogurt and organic honey"
+      },
+      {
+        id: 15,
+        name: "Tropical Paradise Smoothie",
+        category: "smoothies",
+        price: 720,
+        image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=800&auto=format&fit=crop",
+        description: "Mango, pineapple, and coconut water blend"
+      },
+      {
+        id: 16,
+        name: "Protein Power Smoothie",
+        category: "smoothies",
+        price: 750,
+        image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=800&auto=format&fit=crop",
+        description: "Banana, protein powder, and almond milk"
+      },
+      // Salads
+      {
+        id: 17,
+        name: "Garden Fresh Salad",
+        category: "salads",
+        price: 580,
+        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
+        description: "Mixed greens, tomatoes, cucumbers, and organic dressing"
+      },
+      {
+        id: 18,
+        name: "Quinoa Power Bowl",
+        category: "salads",
+        price: 720,
+        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
+        description: "Quinoa, roasted vegetables, and tahini dressing"
+      },
+      {
+        id: 19,
+        name: "Mediterranean Salad",
+        category: "salads",
+        price: 650,
+        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
+        description: "Mixed greens, olives, feta, and balsamic vinaigrette"
+      },
+      {
+        id: 20,
+        name: "Asian Slaw Salad",
+        category: "salads",
+        price: 620,
+        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
+        description: "Crispy vegetables with sesame ginger dressing"
+      }
+    ];
+
+    // Render products
+    function renderProducts(filter = 'all') {
+      const container = document.getElementById('productsListing');
+      const filteredProducts = filter === 'all' ? products : products.filter(p => p.category === filter);
+      
+      container.innerHTML = filteredProducts.map(product => `
+        <div class="product-item" data-category="${product.category}">
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            <div class="product-overlay">
+              <button class="btn-view" onclick="viewProduct(${product.id})">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            <div class="product-footer">
+              <span class="product-price">Rs. ${product.price.toLocaleString()}</span>
+              <button class="btn-add-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+        renderProducts(filter);
+      });
+    });
+
+    // View product (quick view)
+    function viewProduct(id) {
+      const product = products.find(p => p.id === id);
+      if (product) {
+        alert(`${product.name}\n\n${product.description}\n\nPrice: Rs. ${product.price.toLocaleString()}\n\nClick "Add to Cart" to purchase.`);
+      }
+    }
+
+    // Initialize
+    renderProducts();
+  </script>
+</body>
+</html>
+

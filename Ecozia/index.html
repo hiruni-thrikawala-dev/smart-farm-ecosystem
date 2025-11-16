@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ECOZIA - A Tapestry of Freshness and Wellness. Fresh, pesticide-free organic produce delivered to your doorstep.">
+  <meta name="keywords" content="organic produce, fresh vegetables, fruits, smoothies, salads, eco-friendly, sustainable, greenhouse">
+  <meta property="og:title" content="ECOZIA - A Tapestry of Freshness and Wellness">
+  <meta property="og:description" content="Fresh, pesticide-free organic produce grown in smart greenhouses and delivered weekly to your doorstep">
+  <title>ECOZIA - A Tapestry of Freshness and Wellness</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <h1>🌱 ECOZIA</h1>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html#home">Home</a>
+        <a href="products.html">Products</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a href="signin.html" class="signin-link">Sign In</a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1 class="hero-title">A Tapestry of Freshness and Wellness</h1>
+      <p class="hero-subtitle">Fresh, pesticide-free organic produce grown in smart greenhouses and delivered weekly to your doorstep</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="scrollToSection('products')">Choose Your Freshness</button>
+        <button class="btn-secondary" onclick="scrollToSection('pricing')">View Baskets</button>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Fresh Offerings</h2>
+        <p>Handpicked quality, delivered fresh to your door</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card" data-aos="fade-up">
+          <div class="product-icon">
+            <span class="icon">🥬</span>
+          </div>
+          <h3>Fresh Organic Veggies & Fruits</h3>
+          <p>Handpicked, farm fresh produce grown the natural way. Pesticide-free, nutrient-rich, and delivered at peak freshness.</p>
+          <ul class="product-features">
+            <li>✓ Pesticide-free</li>
+            <li>✓ Farm fresh</li>
+            <li>✓ Weekly delivery</li>
+          </ul>
+        </div>
+
+        <div class="product-card highlight" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-icon">
+            <span class="icon">🥤</span>
+          </div>
+          <h3>Smoothies</h3>
+          <p>Wholesome blends of pure organic goodness. Made fresh with our organic fruits and vegetables, packed with nutrients.</p>
+          <ul class="product-features">
+            <li>✓ 100% Organic</li>
+            <li>✓ Freshly blended</li>
+            <li>✓ Nutrient-packed</li>
+          </ul>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="product-icon">
+            <span class="icon">🥗</span>
+          </div>
+          <h3>Salads</h3>
+          <p>Ready-to-enjoy jars packed with freshness. Convenient, healthy, and made with the finest organic ingredients.</p>
+          <ul class="product-features">
+            <li>✓ Ready-to-eat</li>
+            <li>✓ Fresh ingredients</li>
+            <li>✓ Convenient packaging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose ECOZIA</h2>
+        <p>Experience the difference of fresh, sustainable, and convenient organic produce delivery</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🌿</div>
+          <h4>Fresh & Organic All Year Round</h4>
+          <p>Our smart greenhouses ensure fresh produce regardless of season</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🚫</div>
+          <h4>Pesticide-Free</h4>
+          <p>100% natural growing methods for your health and peace of mind</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌍</div>
+          <h4>Eco-Friendly & Sustainable</h4>
+          <p>Zero-waste production with organic fertilizers from waste</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">👨‍🌾</div>
+          <h4>Supports Local Farmers</h4>
+          <p>Partnering with local farmers for sustainable agriculture</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🏠</div>
+          <h4>Healthy Lifestyle Made Easy</h4>
+          <p>Convenient weekly delivery right to your doorstep</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📦</div>
+          <h4>Smart Delivery System</h4>
+          <p>Smart cooling boxes ensure freshness from farm to table</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🏆</div>
+          <h4>Quality Guaranteed</h4>
+          <p>Every product is carefully selected and quality-checked before delivery</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💚</div>
+          <h4>Community Impact</h4>
+          <p>Supporting local farmers and sustainable agriculture practices</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About ECOZIA Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About ECOZIA</h2>
+        <p>Growing fresh, pesticide-free fruits, veggies & herbs in smart greenhouses and delivering them weekly to your doorstep</p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Our Philosophy</h3>
+          <p>At ECOZIA, we believe that fresh, organic produce should be accessible to everyone. We combine cutting-edge smart greenhouse technology with traditional farming wisdom to bring you the best of both worlds.</p>
+
+          <h3>Smart-Farm Ecosystem</h3>
+          <p>Our innovative approach uses smart greenhouse technology to ensure optimal growing conditions year-round. We partner with local farmers to create a sustainable ecosystem that benefits everyone. Our state-of-the-art facilities combine traditional farming wisdom with cutting-edge technology, ensuring that every vegetable, fruit, and herb is grown in the most natural and sustainable way possible.</p>
+
+          <h3>Our Journey</h3>
+          <p>ECOZIA was founded with a simple yet powerful vision: to make fresh, organic produce accessible to everyone while supporting local agriculture and protecting our environment. Starting from a small greenhouse operation in Nuwara Eliya, we've grown into a trusted name in organic produce delivery. Today, we serve hundreds of families and businesses, bringing farm-fresh goodness directly to their doorsteps.</p>
+
+          <h3>Our Commitment</h3>
+          <p>We are committed to transparency, sustainability, and quality. Every step of our process, from seed selection to final delivery, is carefully monitored to ensure you receive the freshest, most nutritious produce possible. We believe in building long-term relationships with our customers, farmers, and the community we serve.</p>
+
+          <div class="sustainability-features">
+            <div class="sustainability-item">
+              <div class="sustainability-icon">♻️</div>
+              <div>
+                <h4>Organic Fertilizers</h4>
+                <p>Turning waste into nutrient-rich soil food</p>
+              </div>
+            </div>
+            <div class="sustainability-item">
+              <div class="sustainability-icon">🔄</div>
+              <div>
+                <h4>Zero-Waste Production</h4>
+                <p>Every part of our process is designed to minimize waste</p>
+              </div>
+            </div>
+            <div class="sustainability-item">
+              <div class="sustainability-icon">📱</div>
+              <div>
+                <h4>QR Code Tracking</h4>
+                <p>Transparent farm-to-table tracking with QR codes</p>
+              </div>
+            </div>
+            <div class="sustainability-item">
+              <div class="sustainability-icon">🎁</div>
+              <div>
+                <h4>Rewards & Support</h4>
+                <p>Rewards for returns & dedicated farmer support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-image">
+          <div class="image-placeholder">
+            <span class="placeholder-icon">🌱</span>
+            <p>Smart Greenhouse Technology</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Subscription Plans</h2>
+        <p>Choose the perfect plan for your household or business</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card" data-aos="fade-up">
+          <div class="pricing-header">
+            <h3>The Fresh Basket</h3>
+            <div class="price">
+              <span class="currency">Rs.</span>
+              <span class="amount">5,000</span>
+              <span class="period">/month</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Weekly mix of vegetables</li>
+            <li>✓ Ideal for 2-3 people</li>
+            <li>✓ Fresh organic produce</li>
+            <li>✓ Pesticide-free guarantee</li>
+          </ul>
+          <button class="btn-pricing" onclick="contactUs()">Get Started</button>
+        </div>
+
+        <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="popular-badge">Most Popular</div>
+          <div class="pricing-header">
+            <h3>The Family Feast</h3>
+            <div class="price">
+              <span class="currency">Rs.</span>
+              <span class="amount">8,000</span>
+              <span class="period">/month</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Bigger weekly basket</li>
+            <li>✓ Free delivery included</li>
+            <li>✓ Early access to fresh crops</li>
+            <li>✓ Perfect for families</li>
+            <li>✓ Priority support</li>
+          </ul>
+          <button class="btn-pricing btn-featured" onclick="contactUs()">Get Started</button>
+        </div>
+
+        <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-header">
+            <h3>The Business Partner</h3>
+            <div class="price">
+              <span class="currency">Custom</span>
+              <span class="amount">Pricing</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Bulk supply available</li>
+            <li>✓ For restaurants, hotels & shops</li>
+            <li>✓ Dedicated support team</li>
+            <li>✓ Flexible delivery schedule</li>
+            <li>✓ Customized orders</li>
+          </ul>
+          <button class="btn-pricing" onclick="contactUs()">Contact Sales</button>
+        </div>
+      </div>
+
+      <div class="wellness-box">
+        <div class="wellness-content">
+          <div class="wellness-image">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop" alt="Wellness Box">
+          </div>
+          <div class="wellness-text">
+            <h3>Wellness-in-a-Box</h3>
+            <p>Elevate your health journey with our curated wellness packages. Each box is thoughtfully designed to provide you with nourishing, ready-to-enjoy organic products that fit perfectly into your busy lifestyle.</p>
+            <p class="wellness-detail">Our Wellness-in-a-Box service goes beyond fresh produce. We offer carefully crafted smoothies made from our organic fruits and vegetables, nutrient-packed salads in convenient jars, and specially blended herbal teas. Perfect for families looking to maintain a healthy lifestyle, fitness enthusiasts needing nutritious fuel, or corporate teams wanting to offer wellness benefits to employees.</p>
+            <div class="wellness-features">
+              <div class="wellness-feature-item">
+                <span class="wellness-feature-icon">🥤</span>
+                <div>
+                  <h4>Fresh Smoothies</h4>
+                  <p>Daily blended with organic fruits and vegetables</p>
+                </div>
+              </div>
+              <div class="wellness-feature-item">
+                <span class="wellness-feature-icon">🥗</span>
+                <div>
+                  <h4>Ready-to-Eat Salads</h4>
+                  <p>Prepared fresh daily with organic ingredients</p>
+                </div>
+              </div>
+              <div class="wellness-feature-item">
+                <span class="wellness-feature-icon">🌿</span>
+                <div>
+                  <h4>Herbal Blends</h4>
+                  <p>Custom herbal tea blends for wellness</p>
+                </div>
+              </div>
+            </div>
+            <div class="wellness-plans">
+              <span class="wellness-tag">Family Plan</span>
+              <span class="wellness-tag">Fitness Plan</span>
+              <span class="wellness-tag">Corporate Plan</span>
+            </div>
+            <button class="btn-wellness" onclick="contactUs()">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get in Touch</h2>
+        <p>We'd love to hear from you. Reach out to start your fresh journey!</p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <h4>Website</h4>
+              <a href="https://www.greenhouseecozia.com" target="_blank">www.greenhouseecozia.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:greenhouseecozia@gmail.com">greenhouseecozia@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <h4>Phone / WhatsApp</h4>
+              <a href="tel:+94715054968">071-5054968</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>123/2, St.Joseph's road,<br>Nuwara Eliya</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2>🌱 ECOZIA</h2>
+          <p>A Tapestry of Freshness and Wellness</p>
+          <p class="footer-tagline">Fresh, organic produce delivered to your doorstep</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#products">Organic Veggies & Fruits</a></li>
+            <li><a href="#products">Smoothies</a></li>
+            <li><a href="#products">Salads</a></li>
+            <li><a href="#pricing">Subscription Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>📧 greenhouseecozia@gmail.com</p>
+          <p>📱 071-5054968</p>
+          <p>📍 123/2, St.Joseph's road, Nuwara Eliya</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ECOZIA. All Rights Reserved.</p>
+        <p><a href="https://www.greenhouseecozia.com" target="_blank">www.greenhouseecozia.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
+</body>
+</html>

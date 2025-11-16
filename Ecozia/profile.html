@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ECOZIA Profile Settings - Manage your account">
+  <title>Profile Settings - ECOZIA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <a href="index.html"><h1>🌱 ECOZIA</h1></a>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html#home">Home</a>
+        <a href="products.html">Products</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="profile.html" class="signin-link active">Profile</a>
+        <a href="#" onclick="logout(); return false;">Logout</a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <div class="container">
+      <div class="profile-container">
+        <!-- Profile Sidebar -->
+        <div class="profile-sidebar">
+          <div class="profile-avatar">
+            <div class="avatar-circle">
+              <span id="avatarInitials">JD</span>
+            </div>
+            <h2 id="userName">John Doe</h2>
+            <p id="userEmail">john.doe@example.com</p>
+          </div>
+
+          <nav class="profile-nav">
+            <a href="#personal" class="profile-nav-link active" onclick="showSection('personal'); return false;">
+              <span>👤</span> Personal Info
+            </a>
+            <a href="#orders" class="profile-nav-link" onclick="showSection('orders'); return false;">
+              <span>📦</span> My Orders
+            </a>
+            <a href="#subscriptions" class="profile-nav-link" onclick="showSection('subscriptions'); return false;">
+              <span>🔄</span> Subscriptions
+            </a>
+            <a href="#address" class="profile-nav-link" onclick="showSection('address'); return false;">
+              <span>📍</span> Delivery Address
+            </a>
+            <a href="#settings" class="profile-nav-link" onclick="showSection('settings'); return false;">
+              <span>⚙️</span> Account Settings
+            </a>
+          </nav>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="profile-content">
+          <!-- Personal Info Section -->
+          <div class="profile-section-content active" id="personal-section">
+            <h2>Personal Information</h2>
+            <form class="profile-form" id="personalForm" onsubmit="updatePersonalInfo(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="profile-name">Full Name</label>
+                  <input type="text" id="profile-name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="profile-email">Email Address</label>
+                  <input type="email" id="profile-email" name="email" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="profile-phone">Phone Number</label>
+                  <input type="tel" id="profile-phone" name="phone">
+                </div>
+                <div class="form-group">
+                  <label for="profile-dob">Date of Birth</label>
+                  <input type="date" id="profile-dob" name="dob">
+                </div>
+              </div>
+              <button type="submit" class="btn-save">Save Changes</button>
+            </form>
+          </div>
+
+          <!-- Orders Section -->
+          <div class="profile-section-content" id="orders-section">
+            <h2>My Orders</h2>
+            <div class="orders-list" id="ordersList">
+              <p class="no-orders">You haven't placed any orders yet.</p>
+            </div>
+          </div>
+
+          <!-- Subscriptions Section -->
+          <div class="profile-section-content" id="subscriptions-section">
+            <h2>Active Subscriptions</h2>
+            <div class="subscriptions-list" id="subscriptionsList">
+              <p class="no-subscriptions">You don't have any active subscriptions.</p>
+            </div>
+          </div>
+
+          <!-- Address Section -->
+          <div class="profile-section-content" id="address-section">
+            <h2>Delivery Address</h2>
+            <form class="profile-form" id="addressForm" onsubmit="updateAddress(event)">
+              <div class="form-group">
+                <label for="address-line1">Address Line 1</label>
+                <input type="text" id="address-line1" name="line1" required>
+              </div>
+              <div class="form-group">
+                <label for="address-line2">Address Line 2</label>
+                <input type="text" id="address-line2" name="line2">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="address-city">City</label>
+                  <input type="text" id="address-city" name="city" required>
+                </div>
+                <div class="form-group">
+                  <label for="address-postal">Postal Code</label>
+                  <input type="text" id="address-postal" name="postal" required>
+                </div>
+              </div>
+              <button type="submit" class="btn-save">Save Address</button>
+            </form>
+          </div>
+
+          <!-- Settings Section -->
+          <div class="profile-section-content" id="settings-section">
+            <h2>Account Settings</h2>
+            <div class="settings-list">
+              <div class="setting-item">
+                <div>
+                  <h4>Email Notifications</h4>
+                  <p>Receive updates about your orders and subscriptions</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div>
+                  <h4>SMS Notifications</h4>
+                  <p>Get delivery updates via SMS</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div>
+                  <h4>Marketing Emails</h4>
+                  <p>Receive offers and promotions</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+            <div class="danger-zone">
+              <h3>Danger Zone</h3>
+              <button class="btn-danger" onclick="deleteAccount()">Delete Account</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Check authentication
+    const user = localStorage.getItem('ecozia_user');
+    if (!user) {
+      window.location.href = 'signin.html';
+    }
+
+    const userData = JSON.parse(user);
+    
+    // Load user data
+    function loadUserData() {
+      if (userData.name) {
+        const names = userData.name.split(' ');
+        const initials = names.map(n => n[0]).join('').toUpperCase();
+        document.getElementById('avatarInitials').textContent = initials;
+        document.getElementById('userName').textContent = userData.name;
+        document.getElementById('profile-name').value = userData.name;
+      }
+      if (userData.email) {
+        document.getElementById('userEmail').textContent = userData.email;
+        document.getElementById('profile-email').value = userData.email;
+      }
+      if (userData.phone) {
+        document.getElementById('profile-phone').value = userData.phone;
+      }
+      if (userData.address) {
+        document.getElementById('address-line1').value = userData.address.line1 || '';
+        document.getElementById('address-line2').value = userData.address.line2 || '';
+        document.getElementById('address-city').value = userData.address.city || '';
+        document.getElementById('address-postal').value = userData.address.postal || '';
+      }
+    }
+
+    function showSection(section) {
+      // Hide all sections
+      document.querySelectorAll('.profile-section-content').forEach(s => {
+        s.classList.remove('active');
+      });
+      
+      // Remove active class from nav
+      document.querySelectorAll('.profile-nav-link').forEach(l => {
+        l.classList.remove('active');
+      });
+      
+      // Show selected section
+      document.getElementById(section + '-section').classList.add('active');
+      
+      // Add active class to nav
+      event.target.closest('.profile-nav-link').classList.add('active');
+    }
+
+    function updatePersonalInfo(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+      
+      userData.name = data.name;
+      userData.email = data.email;
+      userData.phone = data.phone;
+      userData.dob = data.dob;
+      
+      localStorage.setItem('ecozia_user', JSON.stringify(userData));
+      
+      // Update display
+      const names = data.name.split(' ');
+      const initials = names.map(n => n[0]).join('').toUpperCase();
+      document.getElementById('avatarInitials').textContent = initials;
+      document.getElementById('userName').textContent = data.name;
+      document.getElementById('userEmail').textContent = data.email;
+      
+      alert('Personal information updated successfully!');
+    }
+
+    function updateAddress(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+      
+      userData.address = {
+        line1: data.line1,
+        line2: data.line2,
+        city: data.city,
+        postal: data.postal
+      };
+      
+      localStorage.setItem('ecozia_user', JSON.stringify(userData));
+      alert('Address updated successfully!');
+    }
+
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        userData.loggedIn = false;
+        localStorage.setItem('ecozia_user', JSON.stringify(userData));
+        window.location.href = 'signin.html';
+      }
+    }
+
+    function deleteAccount() {
+      if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+        localStorage.removeItem('ecozia_user');
+        window.location.href = 'index.html';
+      }
+    }
+
+    // Initialize
+    loadUserData();
+  </script>
+</body>
+</html>
+
